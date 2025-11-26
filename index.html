@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>智慧医院服务平台</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- 装饰性元素 -->
+    <div class="decoration-circle"></div>
+    <div class="decoration-circle"></div>
+    <div class="decoration-circle"></div>
+    
+    <!-- 粒子效果 -->
+    <div class="particle-container" id="particleContainer"></div>
+    
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <i class="fas fa-hospital"></i>
+                    <span>智慧医院</span>
+                </div>
+                <nav class="nav-menu">
+                    <a href="#home" class="nav-item active">首页</a>
+                    <a href="#triage" class="nav-item">智能导诊</a>
+                    <a href="#appointment" class="nav-item">挂号预约</a>
+                    <a href="#payment" class="nav-item">缴费查询</a>
+                    <a href="#reports" class="nav-item">检查报告</a>
+                    <a href="#medication" class="nav-item">用药指导</a>
+                </nav>
+                <div class="user-info">
+                    <i class="fas fa-user-circle"></i>
+                    <span>张患者</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <!-- 首页 -->
+        <section id="home" class="section active">
+            <div class="container">
+                <div class="hero-section">
+                    <h1>智慧医院服务平台</h1>
+                    <p>为您提供便捷、高效的医疗服务体验</p>
+                    
+                    <!-- 语音输入功能 -->
+                    <div class="voice-input-container">
+                        <button class="voice-input-btn" id="voiceInputBtn">
+                        <i class="fas fa-microphone"></i>
+                        <span>语音输入需求</span>
+                    </button>
+                    
+
+                        <div class="voice-status" id="voiceStatus">点击按钮开始语音输入</div>
+                        <div class="voice-recording" id="voiceRecording">
+                            <div class="recording-indicator">
+                                <div class="recording-dot"></div>
+                                <span>正在录音...</span>
+                            </div>
+                            <div class="recording-timer" id="recordingTimer">00:00</div>
+                        </div>
+                        <div class="voice-result" id="voiceResult" style="display: none;">
+                            <div class="result-text">
+                                <strong>识别结果：</strong>
+                                <span id="recognizedText"></span>
+                            </div>
+                            <div class="result-actions">
+                                <button class="btn-secondary" id="saveVoiceBtn">
+                                    <i class="fas fa-save"></i> 保存录音
+                                </button>
+                                <button class="btn-secondary" id="retryVoiceBtn">
+                                    <i class="fas fa-redo"></i> 重新录制
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="service-grid">
+                        <div class="service-card" onclick="showSection('triage')">
+                            <i class="fas fa-stethoscope"></i>
+                            <h3>智能导诊</h3>
+                            <p>根据症状推荐合适科室</p>
+                        </div>
+                        <div class="service-card" onclick="showSection('appointment')">
+                            <i class="fas fa-calendar-plus"></i>
+                            <h3>挂号预约</h3>
+                            <p>在线预约挂号服务</p>
+                        </div>
+                        <div class="service-card" onclick="showSection('payment')">
+                            <i class="fas fa-credit-card"></i>
+                            <h3>缴费查询</h3>
+                            <p>费用明细与在线支付</p>
+                        </div>
+                        <div class="service-card" onclick="showSection('reports')">
+                            <i class="fas fa-file-medical"></i>
+                            <h3>检查报告</h3>
+                            <p>查看检查报告与解读</p>
+                        </div>
+                        <div class="service-card" onclick="showSection('medication')">
+                            <i class="fas fa-pills"></i>
+                            <h3>用药指导</h3>
+                            <p>药品信息与用药提醒</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 智能导诊 -->
+        <section id="triage" class="section">
+            <div class="container">
+                <div class="section-header">
+                    <h2>智能导诊</h2>
+                    <p>描述您的症状，我们为您推荐合适的科室</p>
+                </div>
+                <div class="triage-content">
+                    <div class="symptom-input">
+                        <h3>请描述您的症状</h3>
+                        <textarea placeholder="请详细描述您的症状，例如：头痛、发热、咳嗽等"></textarea>
+                        <button class="btn-primary">开始导诊</button>
+                    <div style="margin-top: 15px; font-size: 0.9rem; color: #7f8c8d;">
+                        <i class="fas fa-robot"></i> 由AI智能分析
+                        <a href="test_triage.html" target="_blank" style="color: #3498db; margin-left: 10px;">
+                            <i class="fas fa-flask"></i> 测试功能
+                        </a>
+                    </div>
+                    </div>
+                    <div class="common-symptoms">
+                        <h3>常见症状</h3>
+                        <div class="symptom-tags">
+                            <span class="symptom-tag" data-symptom="发热">发热</span>
+                            <span class="symptom-tag" data-symptom="咳嗽">咳嗽</span>
+                            <span class="symptom-tag" data-symptom="头痛">头痛</span>
+                            <span class="symptom-tag" data-symptom="腹痛">腹痛</span>
+                            <span class="symptom-tag" data-symptom="胸痛">胸痛</span>
+                            <span class="symptom-tag" data-symptom="恶心">恶心</span>
+                            <span class="symptom-tag" data-symptom="头晕">头晕</span>
+                            <span class="symptom-tag" data-symptom="乏力">乏力</span>
+                        </div>
+                        <div class="symptom-tags" style="margin-top: 10px;">
+                            <span class="symptom-tag" data-symptom="腹泻">腹泻</span>
+                            <span class="symptom-tag" data-symptom="失眠">失眠</span>
+                            <span class="symptom-tag" data-symptom="心悸">心慌</span>
+                            <span class="symptom-tag" data-symptom="尿频">尿频</span>
+                            <span class="symptom-tag" data-symptom="月经不规律">月经不规律</span>
+                            <span class="symptom-tag" data-symptom="关节疼痛">关节疼痛</span>
+                            <span class="symptom-tag" data-symptom="腰痛">腰痛</span>
+                            <span class="symptom-tag" data-symptom="皮疹">皮肤红疹</span>
+                        </div>
+                        <div class="symptom-tags" style="margin-top: 10px;">
+                            <span class="symptom-tag" data-symptom="视力模糊">视力模糊</span>
+                            <span class="symptom-tag" data-symptom="眼红">眼睛发红</span>
+                            <span class="symptom-tag" data-symptom="鼻塞">鼻塞</span>
+                            <span class="symptom-tag" data-symptom="耳鸣">耳鸣</span>
+                            <span class="symptom-tag" data-symptom="尿痛">尿痛</span>
+                            <span class="symptom-tag" data-symptom="下腹痛">下腹痛</span>
+                            <span class="symptom-tag" data-symptom="皮肤瘙痒">皮肤瘙痒</span>
+                            <span class="symptom-tag" data-quick="true">一键智能分析</span>
+                        </div>
+                    </div>
+                    <div class="department-recommendation" style="display: none;">
+                        <h3>推荐科室</h3>
+                        <div class="recommendation-card">
+                            <div class="dept-info">
+                                <h4>内科</h4>
+                                <p>适合症状：发热、咳嗽、乏力等</p>
+                                <div class="dept-stats">
+                                    <span><i class="fas fa-user-md"></i> 医生：12人</span>
+                                    <span><i class="fas fa-clock"></i> 等待：15分钟</span>
+                                </div>
+                            </div>
+                            <button class="btn-secondary">立即挂号</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 挂号预约 -->
+        <section id="appointment" class="section">
+            <div class="container">
+                <div class="section-header">
+                    <h2>挂号预约</h2>
+                    <p>选择科室和医生，预约就诊时间</p>
+                </div>
+                <div class="appointment-content">
+                    <div class="appointment-filters">
+                        <div class="filter-group">
+                            <label>选择科室</label>
+                            <select id="department-select" class="filter-select">
+                                <option value="">请选择科室</option>
+                                <option value="respiratory">呼吸内科</option>
+                                <option value="digestive">消化内科</option>
+                                <option value="neurology">神经内科</option>
+                                <option value="cardiology">心内科</option>
+                                <option value="general">内科</option>
+                                <option value="surgery">外科</option>
+                                <option value="pediatrics">儿科</option>
+                                <option value="obstetrics">妇产科</option>
+                                <option value="orthopedics">骨科</option>
+                                <option value="dermatology">皮肤科</option>
+                                <option value="ophthalmology">眼科</option>
+                                <option value="ent">耳鼻喉科</option>
+                                <option value="emergency">急诊科</option>
+                                <option value="fever">发热门诊</option>
+                            </select>
+                        </div>
+                        <div class="filter-group">
+                            <label>选择日期</label>
+                            <input type="date" id="appointment-date" class="filter-input">
+                        </div>
+                    </div>
+                    <div class="doctor-list">
+                        <div class="doctor-card">
+                            <div class="doctor-avatar">
+                                <i class="fas fa-user-md"></i>
+                            </div>
+                            <div class="doctor-info">
+                                <h4>王医生</h4>
+                                <p class="doctor-title">主任医师</p>
+                                <p class="doctor-specialty">擅长：呼吸系统疾病、发热咳嗽等</p>
+                                <div class="doctor-stats">
+                                    <span><i class="fas fa-star"></i> 4.8分</span>
+                                    <span><i class="fas fa-graduation-cap"></i> 20年经验</span>
+                                </div>
+                            </div>
+                            <div class="appointment-slots">
+                                <div class="time-slots">
+                                    <button class="time-slot">09:00</button>
+                                    <button class="time-slot">10:00</button>
+                                    <button class="time-slot">14:00</button>
+                                    <button class="time-slot">15:00</button>
+                                </div>
+                                <div class="fee-info">
+                                    <span class="fee">¥50</span>
+                                    <span class="available">剩余5个号</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- 确认预约按钮 -->
+                    <div class="appointment-confirm">
+                        <div class="appointment-summary">
+                            <h4>预约信息确认</h4>
+                            <div class="summary-item">
+                                <span>科室：</span>
+                                <span id="summary-department">未选择</span>
+                            </div>
+                            <div class="summary-item">
+                                <span>医生：</span>
+                                <span id="summary-doctor">未选择</span>
+                            </div>
+                            <div class="summary-item">
+                                <span>日期：</span>
+                                <span id="summary-date">未选择</span>
+                            </div>
+                            <div class="summary-item">
+                                <span>时间：</span>
+                                <span id="summary-time">未选择</span>
+                            </div>
+                            <div class="summary-item">
+                                <span>费用：</span>
+                                <span id="summary-fee">¥0</span>
+                            </div>
+                        </div>
+                        <button id="confirm-appointment-btn" class="btn-confirm-appointment" disabled>
+                            <i class="fas fa-calendar-check"></i>
+                            确定预约
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 缴费查询 -->
+        <section id="payment" class="section">
+            <div class="container">
+                <div class="section-header">
+                    <h2>缴费查询</h2>
+                    <p>查看费用明细并进行在线支付</p>
+                </div>
+                <div class="payment-content">
+                    <div class="payment-tabs">
+                        <button class="tab-btn active">待缴费</button>
+                        <button class="tab-btn">已缴费</button>
+                        <button class="tab-btn">缴费记录</button>
+                    </div>
+                    <div class="payment-list">
+                        <div class="payment-item">
+                            <div class="payment-info">
+                                <h4>门诊费用 - 内科</h4>
+                                <p>就诊时间：2025-11-22 10:30</p>
+                                <p>医生：王医生</p>
+                            </div>
+                            <div class="payment-amount">
+                                <span class="amount">¥150.00</span>
+                                <button class="btn-pay">立即支付</button>
+                            </div>
+                        </div>
+                        <div class="payment-item">
+                            <div class="payment-info">
+                                <h4>检查费用 - 血常规</h4>
+                                <p>检查时间：2025-11-22 11:00</p>
+                                <p>检查项目：血常规、尿常规</p>
+                            </div>
+                            <div class="payment-amount">
+                                <span class="amount">¥80.00</span>
+                                <button class="btn-pay">立即支付</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="payment-details" style="display: none;">
+                        <h3>费用明细</h3>
+                        <div class="fee-breakdown">
+                            <div class="fee-item">
+                                <span>挂号费</span>
+                                <span>¥15.00</span>
+                            </div>
+                            <div class="fee-item">
+                                <span>诊疗费</span>
+                                <span>¥35.00</span>
+                            </div>
+                            <div class="fee-item">
+                                <span>药品费</span>
+                                <span>¥100.00</span>
+                            </div>
+                            <div class="fee-total">
+                                <span>总计</span>
+                                <span>¥150.00</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 检查报告 -->
+        <section id="reports" class="section">
+            <div class="container">
+                <div class="section-header">
+                    <h2>检查报告</h2>
+                    <p>查看和解读您的检查报告</p>
+                </div>
+                <div class="reports-content">
+                    <div class="report-list">
+                        <div class="report-card">
+                            <div class="report-header">
+                                <h4>血常规检查</h4>
+                                <span class="report-date">2025-11-22</span>
+                            </div>
+                            <div class="report-status status-normal">
+                                <span class="status-badge completed">✅ 已完成</span>
+                            </div>
+                            <div class="report-summary">
+                                <p>白细胞计数：6.5×10⁹/L (正常)</p>
+                                <p>红细胞计数：4.2×10¹²/L (正常)</p>
+                            </div>
+                            <button class="btn-view">查看详情</button>
+                        </div>
+                        <div class="report-card">
+                            <div class="report-header">
+                                <h4>尿常规检查</h4>
+                                <span class="report-date">2025-11-22</span>
+                            </div>
+                            <div class="report-status status-abnormal">
+                                <span class="status-badge completed">⚠️ 异常结果</span>
+                            </div>
+                            <div class="report-summary">
+                                <p>尿蛋白：阳性 (++++) 异常</p>
+                                <p>尿糖：阳性 (+) 异常</p>
+                            </div>
+                            <button class="btn-view">查看详情</button>
+                        </div>
+                    </div>
+                    <div class="report-details" style="display: none;">
+                        <div class="report-details-header">
+                            <h3>报告详情</h3>
+                            <button class="btn-back-to-list">
+                                <i class="fas fa-arrow-left"></i> 返回列表
+                            </button>
+                        </div>
+                        <div class="report-content">
+                                <div class="test-results">
+                                    <div class="test-item abnormal">
+                                        <span class="test-name">尿蛋白</span>
+                                        <span class="test-value abnormal">阳性(++++)</span>
+                                        <span class="test-range">阴性</span>
+                                        <span class="test-status abnormal">异常</span>
+                                    </div>
+                                    <div class="test-item abnormal">
+                                        <span class="test-name">尿糖</span>
+                                        <span class="test-value abnormal">阳性(+)</span>
+                                        <span class="test-range">阴性</span>
+                                        <span class="test-status abnormal">异常</span>
+                                    </div>
+                                    <div class="test-item abnormal">
+                                        <span class="test-name">尿酮体</span>
+                                        <span class="test-value abnormal">阳性(+)</span>
+                                        <span class="test-range">阴性</span>
+                                        <span class="test-status abnormal">异常</span>
+                                    </div>
+                                    <div class="test-item">
+                                        <span class="test-name">尿比重</span>
+                                        <span class="test-value">1.025</span>
+                                        <span class="test-range">1.003-1.030</span>
+                                        <span class="test-status normal">正常</span>
+                                    </div>
+                                </div>
+                            <div class="report-interpretation">
+                                <h4>结果解读</h4>
+                                <div class="ai-analysis">
+                                    <div class="ai-analysis-header">
+                                        <i class="fas fa-robot"></i>
+                                        <span>AI智能分析</span>
+                                    </div>
+                                    <div class="ai-analysis-content">
+                                        <div class="analysis-item">
+                                            <strong>异常指标：</strong>
+                                            <ul>
+                                                <li>尿蛋白阳性 (++)，正常应为阴性</li>
+                                                <li>尿糖阳性 (+)，正常应为阴性</li>
+                                                <li>尿酮体阳性 (+)，正常应为阴性</li>
+                                            </ul>
+                                        </div>
+                                        <div class="analysis-item">
+                                            <strong>可能原因分析：</strong>
+                                            <ul>
+                                                <li><strong>尿蛋白阳性：</strong>可能提示肾脏功能异常，如肾小球肾炎、肾病综合征等</li>
+                                                <li><strong>尿糖阳性：</strong>血糖水平可能升高，建议检查空腹血糖和糖化血红蛋白</li>
+                                                <li><strong>尿酮体阳性：</strong>可能存在糖尿病酮症酸中毒，或长时间饥饿状态</li>
+                                            </ul>
+                                        </div>
+                                        <div class="analysis-item warning">
+                                            <strong>风险提示：</strong>
+                                            <ul>
+                                                <li>多项指标异常，建议立即就医进一步检查</li>
+                                                <li>需要排除糖尿病和肾脏疾病的可能</li>
+                                                <li>建议进行肾功能检查和血糖监测</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 用药指导 -->
+        <section id="medication" class="section">
+            <div class="container">
+                <div class="section-header">
+                    <h2>用药指导</h2>
+                    <p>药品信息与用药提醒</p>
+                </div>
+                <div class="medication-content">
+                    <div class="medication-tabs">
+                        <button class="tab-btn active">当前用药</button>
+                        <button class="tab-btn">用药历史</button>
+                        <button class="tab-btn">用药提醒</button>
+                    </div>
+                    <div class="medication-list">
+                        <div class="medication-card">
+                            <div class="drug-header">
+                                <div class="drug-icon">
+                                    <i class="fas fa-pills"></i>
+                                </div>
+                                <div class="drug-title">
+                                    <h4>阿莫西林胶囊</h4>
+                                    <p class="drug-category">抗生素类药物</p>
+                                </div>
+                            </div>
+                            <div class="drug-details">
+                                <div class="drug-info">
+                                    <div class="info-item">
+                                        <i class="fas fa-info-circle"></i>
+                                        <div>
+                                            <strong>药物作用：</strong>
+                                            <p>广谱抗生素，有效杀灭多种细菌，用于治疗呼吸道、泌尿道等细菌感染</p>
+                                        </div>
+                                    </div>
+                                    <div class="info-item">
+                                        <i class="fas fa-prescription"></i>
+                                        <div>
+                                            <strong>规格剂量：</strong>
+                                            <p>0.25g×24粒，每次2粒</p>
+                                        </div>
+                                    </div>
+                                    <div class="info-item">
+                                        <i class="fas fa-clock"></i>
+                                        <div>
+                                            <strong>用药方法：</strong>
+                                            <p>口服，一次2粒，一日3次，餐后服用减少胃部刺激</p>
+                                        </div>
+                                    </div>
+                                    <div class="info-item">
+                                        <i class="fas fa-calendar-alt"></i>
+                                        <div>
+                                            <strong>疗程周期：</strong>
+                                            <p>7天完整疗程，即使症状改善也要完成整个疗程</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="medication-status">
+                                    <div class="dosage-tracker">
+                                        <span>今日已服用：2/3次</span>
+                                        <div class="progress-bar">
+                                            <div class="progress" style="width: 67%"></div>
+                                        </div>
+                                    </div>
+                                    <button class="btn-taken">
+                                        <i class="fas fa-check"></i>
+                                        标记已服用
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="medication-card">
+                            <div class="drug-header">
+                                <div class="drug-icon">
+                                    <i class="fas fa-tablets"></i>
+                                </div>
+                                <div class="drug-title">
+                                    <h4>布洛芬片</h4>
+                                    <p class="drug-category">解热镇痛药</p>
+                                </div>
+                            </div>
+                            <div class="drug-details">
+                                <div class="drug-info">
+                                    <div class="info-item">
+                                        <i class="fas fa-info-circle"></i>
+                                        <div>
+                                            <strong>药物作用：</strong>
+                                            <p>非甾体抗炎药，具有解热、镇痛、抗炎作用，用于退烧和缓解轻中度疼痛</p>
+                                        </div>
+                                    </div>
+                                    <div class="info-item">
+                                        <i class="fas fa-prescription"></i>
+                                        <div>
+                                            <strong>规格剂量：</strong>
+                                            <p>0.2g×10片，每次1片</p>
+                                        </div>
+                                    </div>
+                                    <div class="info-item">
+                                        <i class="fas fa-clock"></i>
+                                        <div>
+                                            <strong>用药方法：</strong>
+                                            <p>发热或疼痛时服用1片，每6-8小时可重复用药，24小时内不超过4次</p>
+                                        </div>
+                                    </div>
+                                    <div class="info-item">
+                                        <i class="fas fa-exclamation-triangle"></i>
+                                        <div>
+                                            <strong>注意事项：</strong>
+                                            <p>餐后服用，避免空腹；多喝水；不可长期连续使用</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="medication-status">
+                                    <div class="dosage-tracker">
+                                        <span>上次服用：6小时前</span>
+                                    </div>
+                                    <button class="btn-taken">
+                                        <i class="fas fa-check"></i>
+                                        标记已服用
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="medication-analysis">
+                        <h3>AI用药分析</h3>
+                        <div class="ai-analysis">
+                            <div class="ai-analysis-header">
+                                <i class="fas fa-robot"></i>
+                                <span>AI智能分析</span>
+                            </div>
+                            <div class="ai-analysis-content">
+                                <div class="analysis-item">
+                                    <strong>用药情况评估：</strong>
+                                    <ul>
+                                        <li>阿莫西林胶囊：用量合理，按时服用</li>
+                                        <li>布洛芬片：用量合理，间隔适当</li>
+                                    </ul>
+                                </div>
+                                <div class="analysis-item">
+                                    <strong>药物作用分析：</strong>
+                                    <ul>
+                                        <li><strong>阿莫西林：</strong>广谱抗生素，用于细菌感染治疗，需完成整个疗程</li>
+                                        <li><strong>布洛芬：</strong>解热镇痛药，用于退烧和止痛，按需服用</li>
+                                    </ul>
+                                </div>
+                                <div class="analysis-item">
+                                    <strong>用药建议：</strong>
+                                    <ul>
+                                        <li>继续按照医嘱剂量服用阿莫西林，完成7天疗程</li>
+                                        <li>布洛芬在发热或疼痛时按需服用，注意间隔时间</li>
+                                        <li>保持良好的用药习惯，按时按量服药</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+
+
+    <script src="js/config.js"></script>
+    <script src="js/script.js"></script>
+</body>
+</html>

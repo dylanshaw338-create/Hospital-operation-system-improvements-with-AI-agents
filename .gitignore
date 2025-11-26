@@ -1,0 +1,71 @@
+# 项目依赖和缓存
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# 环境变量和配置文件
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# IDE和编辑器配置
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# 操作系统文件
+.DS_Store
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# 日志文件
+*.log
+logs/
+
+# 临时文件
+tmp/
+temp/
+*.tmp
+
+# 构建输出
+dist/
+build/
+*.tgz
+
+# Python缓存
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+*.so
+
+# 虚拟环境
+venv/
+env/
+ENV/
+
+# 备份文件
+*.bak
+*.backup
+*.old
+
+# 敏感文件（如果存在）
+config.local.js
+secrets.json
+credentials.json
+
+# 测试文件
+test_fix.html
+*.test.js
+
+# 文档缓存
+*.pdf
+*.doc
+*.docx

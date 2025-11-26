@@ -1,0 +1,780 @@
+/* 响应式设计 */
+
+/* 平板设备 (768px - 1024px) */
+@media (max-width: 1024px) {
+    .container {
+        padding: 0 15px;
+    }
+    
+    .header-content {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    
+    .nav-menu {
+        gap: 1rem;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    
+    .hero-section h1 {
+        font-size: 2.5rem;
+    }
+    
+    .service-grid {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 1.5rem;
+    }
+    
+    .triage-content {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    
+    .appointment-filters {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    
+    .doctor-card {
+        flex-direction: column;
+        text-align: center;
+        gap: 1.5rem;
+    }
+    
+    .time-slots {
+        justify-content: center;
+    }
+    
+    .report-list {
+        grid-template-columns: 1fr;
+    }
+    
+    .test-item {
+        grid-template-columns: 1fr;
+        gap: 0.5rem;
+        text-align: center;
+    }
+}
+
+/* 手机设备 (max-width: 768px) */
+@media (max-width: 768px) {
+    .header {
+        padding: 0.5rem 0;
+    }
+    
+    .header-content {
+        padding: 0 1rem;
+    }
+    
+    .logo {
+        font-size: 1.3rem;
+    }
+    
+    .logo i {
+        font-size: 1.5rem;
+    }
+    
+    .nav-menu {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: var(--primary-color);
+        flex-direction: column;
+        padding: 1rem;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    }
+    
+    .nav-menu.active {
+        display: flex;
+    }
+    
+    .mobile-menu-toggle {
+        display: block;
+        background: none;
+        border: none;
+        color: white;
+        font-size: 1.5rem;
+        cursor: pointer;
+    }
+    
+    .hero-section {
+        padding: 2rem 0;
+    }
+    
+    .hero-section h1 {
+        font-size: 2rem;
+    }
+    
+    .hero-section p {
+        font-size: 1rem;
+    }
+    
+    .service-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+    
+    .service-card {
+        padding: 1.5rem;
+    }
+    
+    .service-card i {
+        font-size: 2.5rem;
+    }
+    
+    .section-header h2 {
+        font-size: 2rem;
+    }
+    
+    .symptom-input textarea {
+        height: 120px;
+    }
+    
+    .symptom-tags {
+        justify-content: center;
+    }
+    
+    .recommendation-card {
+        flex-direction: column;
+        text-align: center;
+        gap: 1rem;
+    }
+    
+    .dept-stats {
+        justify-content: center;
+    }
+    
+    .doctor-avatar {
+        width: 60px;
+        height: 60px;
+        font-size: 1.5rem;
+    }
+    
+    .time-slots {
+        flex-wrap: wrap;
+    }
+    
+    .time-slot {
+        padding: 0.4rem 0.8rem;
+        font-size: 0.9rem;
+    }
+    
+    .payment-tabs,
+    .medication-tabs {
+        flex-wrap: wrap;
+        gap: 0.5rem;
+    }
+    
+    .tab-btn {
+        padding: 0.6rem 1rem;
+        font-size: 0.9rem;
+    }
+    
+    .payment-item,
+    .medication-card {
+        flex-direction: column;
+        text-align: center;
+        gap: 1rem;
+    }
+    
+    .payment-amount {
+        text-align: center;
+    }
+    
+    .amount {
+        font-size: 1.3rem;
+    }
+    
+    .report-card {
+        padding: 1.5rem;
+        margin-bottom: 1rem;
+    }
+    
+    .report-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.75rem;
+    }
+    
+    .report-header h4 {
+        font-size: var(--font-size-lg);
+    }
+    
+    .report-date {
+        font-size: var(--font-size-xs);
+        padding: 0.4rem 0.8rem;
+    }
+    
+    .report-status {
+        padding: 0.6rem 1.2rem;
+        font-size: var(--font-size-xs);
+        gap: 0.5rem;
+    }
+    
+    .report-summary {
+        padding: 1.2rem;
+    }
+    
+    .report-summary p {
+        font-size: var(--font-size-sm);
+        margin: 0.5rem 0;
+    }
+    
+    .btn-view {
+        padding: 0.8rem 1.5rem;
+        font-size: var(--font-size-sm);
+        width: 100%;
+        justify-content: center;
+    }
+    
+    .reminder-item {
+        flex-direction: column;
+        text-align: center;
+    }
+}
+
+/* 小屏手机 (max-width: 480px) */
+@media (max-width: 480px) {
+    .container {
+        padding: 0 10px;
+    }
+    
+    .hero-section h1 {
+        font-size: 1.8rem;
+    }
+    
+    .section-header h2 {
+        font-size: 1.8rem;
+    }
+    
+    .service-card {
+        padding: 1rem;
+    }
+    
+    .service-card i {
+        font-size: 2rem;
+    }
+    
+    .service-card h3 {
+        font-size: 1.1rem;
+    }
+    
+    .btn-primary,
+    .btn-secondary,
+    .btn-pay,
+    .btn-view,
+    .btn-taken {
+        padding: 0.7rem 1.2rem;
+        font-size: 0.9rem;
+    }
+    
+    .appointment-filters {
+        padding: 1rem;
+    }
+    
+    .doctor-card {
+        padding: 1.5rem;
+    }
+    
+    .doctor-info h4 {
+        font-size: 1.1rem;
+    }
+    
+    .payment-item,
+    .medication-card {
+        padding: 1rem;
+    }
+    
+    .fee-breakdown {
+        padding: 1rem;
+    }
+    
+    .test-results {
+        padding: 1rem;
+    }
+    
+    .medication-reminders {
+        padding: 1rem;
+    }
+    
+    /* 报告详情返回按钮响应式 */
+    .report-details-header {
+        flex-direction: column;
+        gap: 1rem;
+        align-items: stretch;
+    }
+    
+    .btn-back-to-list {
+        width: 100%;
+        justify-content: center;
+    }
+    
+    /* AI分析响应式样式 */
+    .ai-analysis {
+        padding: 15px;
+        margin-top: 10px;
+    }
+    
+    .ai-analysis-header {
+        flex-direction: column;
+        text-align: center;
+        gap: 8px;
+        margin-bottom: 15px;
+    }
+    
+    .ai-analysis-header i {
+        font-size: 20px;
+    }
+    
+    .ai-analysis-header span {
+        font-size: 16px;
+    }
+    
+    .analysis-item {
+        padding: 12px;
+        margin-bottom: 15px;
+    }
+    
+    .analysis-item strong {
+        font-size: 14px;
+        margin-bottom: 8px;
+    }
+    
+    .analysis-item li {
+        font-size: 13px;
+        margin-bottom: 6px;
+    }
+    
+    .ai-loading, .ai-error {
+        padding: 15px;
+        font-size: 14px;
+    }
+    
+    .ai-loading i {
+        font-size: 20px;
+    }
+}
+
+/* 横屏模式 */
+@media (max-height: 500px) and (orientation: landscape) {
+    .hero-section {
+        padding: 1rem 0;
+    }
+    
+    .service-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1rem;
+    }
+    
+    .service-card {
+        padding: 1rem;
+    }
+}
+
+/* 高对比度模式 */
+@media (prefers-contrast: high) {
+    .header {
+        background: var(--black);
+    }
+    
+    .btn-primary {
+        background: var(--black);
+        border: 2px solid var(--white);
+    }
+    
+    .service-card {
+        border: 2px solid var(--black);
+    }
+    
+    .doctor-card,
+    .report-card,
+    .payment-item,
+    .medication-card {
+        border: 2px solid var(--black);
+    }
+}
+
+/* 减少动画模式 */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+    
+    .section {
+        animation: none;
+    }
+    
+    .service-card:hover,
+    .btn-primary:hover,
+    .btn-secondary:hover,
+    .btn-pay:hover,
+    .btn-view:hover,
+    .btn-taken:hover,
+    .nav-item:hover {
+        transform: none;
+    }
+}
+
+/* 触摸设备优化 */
+@media (hover: none) and (pointer: coarse) {
+    .btn-primary,
+    .btn-secondary,
+    .btn-pay,
+    .btn-view,
+    .btn-taken,
+    .time-slot,
+    .symptom-tag,
+    .tab-btn {
+        min-height: 44px;
+        min-width: 44px;
+    }
+    
+    .service-card {
+        padding: 1.5rem;
+    }
+    
+    .nav-item {
+        padding: 0.8rem 1.2rem;
+    }
+}
+
+/* 打印样式 */
+@media print {
+    * {
+        -webkit-print-color-adjust: exact !important;
+        color-adjust: exact !important;
+        print-color-adjust: exact !important;
+    }
+    
+    body {
+        background: white !important;
+        color: black !important;
+        font-size: 12pt !important;
+        line-height: 1.4 !important;
+    }
+    
+    .header,
+    .nav-menu,
+    .user-info,
+    .btn,
+    .decoration-circle,
+    .particle,
+    .page-loader {
+        display: none !important;
+    }
+    
+    .main-content {
+        padding: 0 !important;
+        margin: 0 !important;
+        min-height: auto !important;
+    }
+    
+    .container {
+        max-width: 100% !important;
+        padding: 0 !important;
+    }
+    
+    .service-card,
+    .doctor-card,
+    .payment-item,
+    .medication-item,
+    .appointment-summary,
+    .report-list {
+        background: white !important;
+        box-shadow: none !important;
+        border: 1px solid #ddd !important;
+        page-break-inside: avoid;
+        margin-bottom: 1rem !important;
+        padding: 1rem !important;
+    }
+    
+    .chart-container,
+    .triage-content {
+        background: white !important;
+        box-shadow: none !important;
+        border: 1px solid #ddd !important;
+        page-break-inside: avoid;
+    }
+    
+    .payment-status,
+    .status-paid,
+    .status-pending,
+    .status-overdue {
+        background: #f0f0f0 !important;
+        color: black !important;
+        box-shadow: none !important;
+        border: 1px solid #ccc !important;
+    }
+    
+    h1, h2, h3, h4, h5, h6 {
+        color: black !important;
+        page-break-after: avoid;
+    }
+    
+    a {
+        color: black !important;
+        text-decoration: underline !important;
+    }
+    
+    .time-slot {
+        background: white !important;
+        border: 1px solid #ccc !important;
+        color: black !important;
+    }
+    
+    .time-slot.selected {
+        background: #e6f3ff !important;
+        border: 2px solid #0066cc !important;
+    }
+    
+    .symptom-tag.active {
+        background: #e6f3ff !important;
+        border: 2px solid #0066cc !important;
+        color: black !important;
+    }
+    
+    .doctor-card.selected {
+        background: #e6f3ff !important;
+        border: 2px solid #0066cc !important;
+    }
+    
+    .logo {
+        -webkit-text-fill-color: black !important;
+        background: none !important;
+        color: black !important;
+    }
+    
+    .logo i {
+        -webkit-text-fill-color: black !important;
+        background: none !important;
+        color: black !important;
+        filter: none !important;
+    }
+    
+    .user-info i {
+        -webkit-text-fill-color: black !important;
+        background: none !important;
+        color: black !important;
+        filter: none !important;
+    }
+    
+    .payment-amount {
+        color: black !important;
+        font-weight: bold !important;
+    }
+    
+    .specialty {
+        background: #f0f0f0 !important;
+        color: black !important;
+    }
+    
+    .doctor-avatar {
+        background: #ccc !important;
+        color: black !important;
+    }
+    
+    .chart-bar-item {
+        background: #ccc !important;
+        color: black !important;
+    }
+    
+    .progress-circle {
+        background: #f0f0f0 !important;
+        color: black !important;
+    }
+    
+    .progress-circle::before {
+        background: white !important;
+    }
+    
+    .progress-circle span {
+        color: black !important;
+    }
+    
+    .medication-icon {
+        background: #f0f0f0 !important;
+        color: black !important;
+    }
+    
+    .medication-icon::before {
+        background: #ccc !important;
+    }
+    
+    .medication-item::before {
+        background: #ccc !important;
+    }
+    
+    .common-symptoms h3 {
+        color: black !important;
+    }
+    
+    .nav-item {
+        background: none !important;
+        color: black !important;
+        border: none !important;
+        box-shadow: none !important;
+    }
+    
+    .nav-item::before,
+    .nav-item::after {
+        display: none !important;
+    }
+    
+    .nav-item.active {
+        background: #e6f3ff !important;
+        border: 1px solid #0066cc !important;
+    }
+    
+    .user-info {
+        background: none !important;
+        border: 1px solid #ccc !important;
+        color: black !important;
+    }
+    
+    .user-info:hover {
+        background: none !important;
+        transform: none !important;
+    }
+    
+    .header {
+        background: white !important;
+        color: black !important;
+        box-shadow: none !important;
+        border-bottom: 1px solid #ccc !important;
+    }
+    
+    .header.scrolled {
+        box-shadow: none !important;
+    }
+    
+    .main-content::before {
+        display: none !important;
+    }
+    
+    .decoration-circle {
+        display: none !important;
+    }
+    
+    .particle {
+        display: none !important;
+    }
+    
+    .ripple {
+        display: none !important;
+    }
+    
+    .particle-container {
+        display: none !important;
+    }
+    
+    .form-group select,
+    .form-group input,
+    .symptom-input textarea {
+        background: white !important;
+        border: 1px solid #ccc !important;
+        box-shadow: none !important;
+        color: black !important;
+    }
+    
+    .form-group select:focus,
+    .form-group input:focus,
+    .symptom-input textarea:focus {
+        background: white !important;
+        border: 2px solid #0066cc !important;
+        box-shadow: none !important;
+        transform: none !important;
+    }
+    
+    .form-group select:hover,
+    .form-group input:hover,
+    .symptom-input textarea:hover {
+        background: white !important;
+        border-color: #999 !important;
+        box-shadow: none !important;
+        transform: none !important;
+    }
+    
+    .form-group::before {
+        display: none !important;
+    }
+    
+    .form-group::after {
+        display: none !important;
+    }
+    
+    .tooltip::before,
+    .tooltip::after {
+        display: none !important;
+    }
+    
+    .loading-spinner,
+    .loading-dots,
+    .loading-bounce {
+        display: none !important;
+    }
+    
+    .page-loader {
+        display: none !important;
+    }
+    
+    .btn-click::before {
+        display: none !important;
+    }
+    
+    .glass-effect {
+        background: white !important;
+        backdrop-filter: none !important;
+        border: 1px solid #ccc !important;
+        box-shadow: none !important;
+    }
+    
+    .hover-3d {
+        transform: none !important;
+    }
+    
+    .hover-3d:hover {
+        transform: none !important;
+    }
+    
+    .chart-line-item {
+        transform: none !important;
+    }
+    
+    .chart-line-item:hover {
+        transform: none !important;
+    }
+    
+    .chart-line-item::before {
+        display: none !important;
+    }
+    
+    .chart-line-item::after {
+        display: none !important;
+    }
+    
+    .chart-line-item .chart-line-bar {
+        background: #ccc !important;
+    }
+    
+    .chart-line-item .chart-line-label {
+        color: black !important;
+    }
+    
+    .chart-line-item .chart-line-value {
+        color: black !important;
+    }
+    
+    .chart-line-item .chart-line-icon {
+        background: #f0f0f0 !important;
+        color: black !important;
+    }
+    
+    .chart-line-item .chart-line-icon::before {
+        background: #ccc !important;
+    }
+}
